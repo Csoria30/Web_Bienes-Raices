@@ -11,12 +11,13 @@ Perfil: https://github.com/codigoconjuan.
 
 ## Tecnologias utilizadas.
 
-- 👉 HTML5
 - 👉 CSS
-- 👉 SASS
-- 👉 NODE
-- 👉 GULP
-
+- 👉 HTML5
+- 👉 JAVA SCRIPT  
+- ⚡ GULP
+- ⚡ NODE
+- ⚡ MODERNIZR
+- ⚡ SASS
 
 <br /><br /><br />
 
