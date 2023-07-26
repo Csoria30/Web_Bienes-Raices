@@ -1,33 +1,21 @@
-<?php
-    $id = $_GET['id'];
-    $id = filter_var($id, FILTER_VALIDATE_INT);
-
-    if(!$id){
-        header('location: /');
-    }
-
-    require 'includes/config/database.php';
+<?php 
+    require __DIR__ .  '/../config/database.php';
     $db = conectarDB();
 
-    $query = "SELECT * FROM propiedades WHERE id = {$id}";
+    $query = "SELECT * FROM propiedades LIMIT {$limite}";
     $resultado = mysqli_query($db, $query);
-
-    if (!$resultado->num_rows){
-        header('location: /');
-    }
-
-    $propiedad = mysqli_fetch_assoc($resultado);
-
-    require 'includes/funciones.php';
-    incluirTemplate('header');
 ?>
 
-    <main class="contenedor seccion contenido-centrado">
-        <h1><?php echo $propiedad['titulo']; ?></h1>
+<div class="contenedor-anuncios">
+    <?php while($propiedad = mysqli_fetch_assoc($resultado)) : ?>
+
+    <div class="anuncio">
         
         <img loading="lazy" src="/imagenes/<?php echo $propiedad['imagen'] ?>" alt="Anuncio">
 
-        <div class="resumen-propiedad">
+        <div class="contenido-anuncio">
+            <h3><?php echo $propiedad['titulo']; ?></h3>
+            <p><?php echo $propiedad['descripcion']; ?></p>
             <p class="precio">$<?php echo $propiedad['precio']; ?></p>
 
             <ul class="iconos-caracteristicas">
@@ -45,13 +33,15 @@
                 </li>
             </ul>
 
-            <p><?php echo $propiedad['descripcion']; ?></p>
+            <a href="anuncio.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">
+                Ver Propiedad
+            </a>
 
-        </div>
-    </main>
+        </div><!-- .Contenido Anuncio -->
+    </div> <!-- .Anuncio  -->
+    <?php endwhile ;?>
+</div><!-- .Contenedor de Anuncio -->
 
-<?php
-    incluirTemplate('footer');
+<?php 
     mysqli_close($db);
 ?>
-
