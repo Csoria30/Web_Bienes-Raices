@@ -3,7 +3,7 @@
     incluirTemplate('header');
 ?>
 
-    <main class="contendor seccion">
+    <main class="contenedor seccion">
         <h1>Contacto</h1>
     </main>
 
