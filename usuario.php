@@ -7,7 +7,7 @@
 
 <?php
 
-    require 'includes/config/database.php';
+    require 'includes/app.php';
     $db = conectarDB();
 
     $email = "correo@correo.com";

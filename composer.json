@@ -1,0 +1,23 @@
+{
+    "name": "root/web_bienes-raices",
+    "description": "Creando proyecto con POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Root\\WebBienesRaices\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Csoria30",
+            "email": "cristianjsoria.29@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload-dev": {
+        "psr-4": {
+            "App\\":"./classes"
+        }
+        
+    }
+}
