@@ -6,7 +6,7 @@
         header('location: /');
     }
 
-    require 'includes/funciones.php';
+    require 'includes/app.php';
     $db = conectarDB();
 
     $query = "SELECT * FROM propiedades WHERE id = {$id}";
