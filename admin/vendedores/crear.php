@@ -6,11 +6,11 @@
     // Arreglo con mensajes de errores
     $errores = Vendedor::getErrores();
     $vendedor = new Vendedor;
-    
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' ){
         //Creando una nueva instancia
         $vendedor = new Vendedor($_POST['vendedor']);
+        
         //Validacion de campos no vacios
         $errores = $vendedor->validar();
 

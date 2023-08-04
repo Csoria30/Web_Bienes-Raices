@@ -9,6 +9,8 @@ class ActiveRecord {
     protected static $tabla = '';
     protected static $columnasDB = [];
 
+    public $id;
+
     //Errores
     protected static $errores = [];
 
@@ -17,12 +19,12 @@ class ActiveRecord {
         self::$db = $database;
     }
 
-    public function guardar(){
+    public function guardar() {
         if(!is_null($this->id)) {
-            //Actualizando
+            // actualizar
             $this->actualizar();
-        }else{
-            //Creando nuevo registro
+        } else {
+            // Creando un nuevo registro
             $this->crear();
         }
     }
@@ -89,13 +91,13 @@ class ActiveRecord {
         return $atributos;
     }
 
-    public function borrarImagen(){
-         //Cmoprobar si existe el archivo
-         $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
-
-         if( $existeArchivo ){
-             unlink(CARPETA_IMAGENES . $this->imagen);
-         }
+    // Elimina el archivo
+    public function borrarImagen() {
+        // Comprobar si existe el archivo
+        $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
+        if($existeArchivo) {
+            unlink(CARPETA_IMAGENES . $this->imagen);
+        }
     }
 
     public function setImagen($imagen){
